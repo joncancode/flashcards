@@ -138,10 +138,6 @@ app.delete('/api/notes/:name/:words', authenticate, (req, res) => {
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 
-
-
-
-
 // Unhandled requests which aren't for the API should serve index.html so
 // client-side routing using browserHistory can function
 app.get(/^(?!\/api(\/|$))/, (req, res) => {
@@ -150,29 +146,40 @@ app.get(/^(?!\/api(\/|$))/, (req, res) => {
 });
 
 let server;
-function runServer(port=3001) {
+function runServer(dbUrl) {
     return new Promise((resolve, reject) => {
-        server = app.listen(port, () => {
+          mongoose.connect(dbUrl, err => {
+      if (err) {
+        return reject(err);
+      }
+        server = app.listen(PORT, () => {
+          console.log(`Your app is listening on port ${PORT}`);
             resolve();
-        }).on('error', reject);
+      })
+        .on('error', err => {
+          mongoose.disconnect();
+          reject(err);
+          });
     });
+   });
 }
 
 function closeServer() {
+  return mongoose.disconnect().then(() => {
     return new Promise((resolve, reject) => {
-        server.close(err => {
-            if (err) {
-                return reject(err);
-            }
-            resolve();
-        });
+      console.log('Closing server');
+      server.close(err => {
+        if (err) {
+          return reject(err);
+        }
+        resolve();
+      });
     });
+  });
 }
 
 if (require.main === module) {
-    runServer();
+  runServer(DATABASE_URL).catch(err => console.error(err));
 }
 
-module.exports = {
-    app, runServer, closeServer
-};
+module.exports = { app, runServer, closeServer };
