@@ -1,15 +1,5 @@
 .notecards {
-    background: lightgray;
-    margin-bottom: 8px;
-    padding: 10px;
+    padding: 1px;
     border-radius: 4px;
-    border: 1px solid black;
-    max-width: 240px;
 }
 
-.test {
-    color: black;
-    margin-bottom: 8px;
-    padding: 8px;
-    border-radius: 4px;
-}
