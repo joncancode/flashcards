@@ -6,7 +6,6 @@ export default function Notetext(props) {
         <div className="notetext">
             <h4>Vocab word</h4>
             <p>description</p>
-            <p>example</p>
         </div>
     );
 };
