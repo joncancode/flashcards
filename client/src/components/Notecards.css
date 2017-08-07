@@ -1,0 +1,13 @@
+.notecards {
+    background: green;
+    margin-bottom: 8px;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.test {
+    color: black;
+    margin-bottom: 8px;
+    padding: 8px;
+    border-radius: 4px;
+}
