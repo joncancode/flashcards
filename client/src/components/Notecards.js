@@ -15,5 +15,10 @@ export class Notecards extends React.Component {
   }
 }
 
+// -----for the total number of notes----- 
 
-export default connect()(Notecards);
+const mapStateToProps = state => ({
+    count: state.notes.length
+});
+
+export default connect(mapStateToProps)(Notecards);
