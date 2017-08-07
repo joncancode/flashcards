@@ -4,7 +4,9 @@ import './Notetext.css'
 export default function Notetext(props) {
     return (
         <div className="notetext">
-            <p>Hello</p>
+            <h4>Vocab word</h4>
+            <p>description</p>
+            <p>example</p>
         </div>
     );
 };

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './components/Notecards';
+import Notecards from './components/Notecards';
+import AddNote from './components/AddNote';
 import './App.css';
 
 class App extends React.Component {
@@ -12,7 +13,8 @@ class App extends React.Component {
         <h4 className="App-intro">
           These are your 'folder' Notes
         </h4>
-    
+      <AddNote />
+      <Notecards />
       </div>
     );
   }

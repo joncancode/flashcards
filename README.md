@@ -1,3 +1,6 @@
+https://wireframe.cc/OsKCOz
+https://trello.com/b/ROhq3X2q/flashcards-planning-board
+
 # noteHero
 
 ## The Problem

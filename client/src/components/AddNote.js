@@ -13,7 +13,6 @@ export default function AddNote(props) {
           onChange={props.onChange}
           required
         />
-        <br />
         <button type="submit" value="Submit">
            ADD NOTE
         </button>
