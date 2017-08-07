@@ -11,28 +11,29 @@ const initialState = {
 
 export const noteHeroReducer = (state=initialState, action) => {
     if (action.type === ADD_NOTE) {
-        // return Object.assign({}, state, {
-        //     lists: [...state.lists, {
-        //         title: action.title,
-        //         cards: []
-        //     }]
-        // });
+        let card = state.card.map((card, index) => {
+            if (index !== action.cardIndex) {
+                return card;
+            }
+            return Object.assign({}, list, {
+                cards: [...card.cards, {
+                    words: action.words,
+                    definitions: action.definitions
+                }]
+            });
+        });
+
+        return Object.assign({}, state, {
+            lists
+        });
     }
     else if (action.type === TOGGLE_NOTE) {
-    //     let lists = state.lists.map((list, index) => {
-    //         if (index !== action.listIndex) {
-    //             return list;
-    //         }
-    //         return Object.assign({}, list, {
-    //             cards: [...list.cards, {
-    //                 text: action.text
-    //             }]
-    //         });
-    //     });
+         state = Object.assign({}, state, {
+             flipped: !state.flipped
+        });
+        return state;
+    }
 
-    //     return Object.assign({}, state, {
-    //         lists
-    //     });
 
      }
 
