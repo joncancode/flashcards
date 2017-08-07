@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux'
+
 import './Notecards.css';
 
 import Notetext from './Notetext.js';
 
-class Notecards extends React.Component {
+export class Notecards extends React.Component {
   render() {
     return (
       <div className="notecards">
@@ -13,4 +15,5 @@ class Notecards extends React.Component {
   }
 }
 
-export default Notecards;
+
+export default connect()(Notecards);

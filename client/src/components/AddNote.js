@@ -1,7 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux'
+
 import './AddNote.css';
 
-export default function AddNote(props) {
+export function AddNote(props) {
   return (
     <div className="addnote">
       <form onSubmit={props.onSubmit} aria-label="enter form">
@@ -29,3 +31,6 @@ export default function AddNote(props) {
     </div>
   );
 }
+
+
+export default connect()(AddNote);

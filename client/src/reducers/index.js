@@ -9,7 +9,7 @@ const initialState = {
     flipped: false
     }
 
-export const trelloReducer = (state=initialState, action) => {
+export const noteHeroReducer = (state=initialState, action) => {
     if (action.type === ADD_NOTE) {
         // return Object.assign({}, state, {
         //     lists: [...state.lists, {
@@ -33,7 +33,8 @@ export const trelloReducer = (state=initialState, action) => {
     //     return Object.assign({}, state, {
     //         lists
     //     });
-    // }
+
+     }
 
     return state;
 };

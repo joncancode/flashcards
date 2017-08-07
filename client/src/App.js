@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Notecards from './components/Notecards';
 import AddNote from './components/AddNote';
 import './App.css';
