@@ -1,19 +1,23 @@
-# Thinkful Full Stack Template
+# Flashcards
 
-A template for developing and deploying full stack JavaScript apps.
+## The Problem
 
-## Getting started
+## The Solution
+### Screenshots
 
-### Setting up a project
 
-* Move into your projects directory: `cd ~/YOUR_PROJECTS_DIRECTORY`
-* Clone this repository: `git clone https://github.com/Thinkful-Ed/full-stack-template YOUR_PROJECT_NAME`
-* Move into the project directory: `cd YOUR_PROJECT_NAME`
-* Install the dependencies: `npm install`
-* Create a new repo on GitHub: https://github.com/new
-    * Make sure the "Initialize this repository with a README" option is left **un**checked
-* Update the remote to point to your GitHub repository: `git remote set-url origin https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME`
+### Tech Used
 
+Frontend: HTML, CSS, Javascript, React/Redux
+
+Backend: node.js, Express, Mongo, Mongoose
+
+TDD: Mocha/Chai
+
+Hosted on Heroku
+
+//////////////////////////
+instructions below for extra help
 ### Working on the project
 
 * Move into the project directory: `cd ~/YOUR_PROJECTS_DIRECTORY/YOUR_PROJECT_NAME`
