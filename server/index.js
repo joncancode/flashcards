@@ -183,3 +183,18 @@ if (require.main === module) {
 }
 
 module.exports = { app, runServer, closeServer };
+
+//ask a refresher on setting up all of our endpoints
+//how to connect server to react-redux
+//making sure the database is up and running with mongo 
+
+
+//Tuesday accomplishments
+
+//Frontend --
+
+//we want to see that we are changing the state 
+
+//Backend --
+
+//Endpoints are working on POSTMAN
