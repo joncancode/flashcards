@@ -9,7 +9,6 @@ import Card from './Card.js';
 
 export class Notecards extends React.Component {
 
-
   render() {
     return (
       <div className="notecards">

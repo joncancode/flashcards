@@ -8,6 +8,15 @@ const initialState = {
         definition: "definition: JavaScript interpreter's action of moving all variable and function declarations to the top of the current scope"}],
     }
 
+
+    submitNumber(e) {
+    e.preventDefault();
+    this.setState({
+      listOfGuesses: [...this.state.listOfGuesses, this.state.numberInput], 
+      distanceAway: checkDistance(this.state.numberInput, this.state.answer)
+    });
+    this.answerCorrectly(this.state.numberInput, this.state.answer);
+
 export const noteHeroReducer = (state = initialState, action) => {
     return state;
     // if (action.type === ADD_NOTE) {
