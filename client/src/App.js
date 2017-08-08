@@ -11,7 +11,7 @@ class App extends React.Component {
           <h1>Note Hero</h1>
         </div>
         <h4 className="App-intro">
-          Study Habits of Heroes!
+          You Got This.
         </h4>
       <AddNote />
       
