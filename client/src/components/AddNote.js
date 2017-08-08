@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { addNote } from '../actions';
+
 import './AddNote.css';
 
 export class AddNote extends React.Component {
@@ -29,13 +31,15 @@ export class AddNote extends React.Component {
     console.log(this.textInput.value.trim(), 'word');
     console.log(this.textArea.value.trim(), 'def');
 
+
+     this.props.dispatch(addNote(text))
+
     this.textInput.value = '';
     this.textArea.value = '';
 
     // console.log(textInput)
     // this.textInput.value = '';
 
-     //this.props.dispatch(addNote(text))
   }
 
   render() {
