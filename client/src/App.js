@@ -13,8 +13,7 @@ class App extends React.Component {
         <h4 className="App-intro">
           These are your 'folder' Notes
         </h4>
-      <AddNote 
-           />
+      <AddNote />
       
       <Notecards />
       </div>

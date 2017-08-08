@@ -121,7 +121,7 @@ app.put('/api/notes/:id', (req, res) => {
   }
 
   const updated = {};
-  const updateableFields = ['words', 'definition'];
+  const updateableFields = ['word', 'definition'];
   updateableFields.forEach(field => {
     if (field in req.body) {
       updated[field] = req.body[field];

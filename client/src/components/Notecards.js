@@ -10,7 +10,13 @@ import Card from './Card.js';
 import {addNote} from '../actions';
 
 export class Notecards extends React.Component {
-
+    constructor(props) {
+      super(props);
+        this.state = {
+          cards: []
+        }
+      }
+    
     addNote(word, definition) {
         this.props.dispatch(addNote(word, definition, this.props.cardIndex));
     }
@@ -23,6 +29,7 @@ export class Notecards extends React.Component {
             <div className="words">
                 <h3>{this.props.words}</h3>
                 {cards}
+               
                 
             </div>
         );
