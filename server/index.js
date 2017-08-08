@@ -113,27 +113,27 @@ app.post('/api/notes', (req, res) => { //this is the pose when we are clicking o
     });
 });
 
-// app.put('/api/notes/:id', (req, res) => {
-//   if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
-//     res.status(400).json({
-//       error: 'Request path id and request body id values must match'
-//     });
-//   }
+app.put('/api/notes/:id', (req, res) => {
+  if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
+    res.status(400).json({
+      error: `${req.body} Request path id and request body id values must match`
+    });
+  }
 
-//   const updated = {};
-//   const updateableFields = ['words', 'definition'];
-//   updateableFields.forEach(field => {
-//     if (field in req.body) {
-//       updated[field] = req.body[field];
-//     }
-//   });
+  const updated = {};
+  const updateableFields = ['words', 'definition'];
+  updateableFields.forEach(field => {
+    if (field in req.body) {
+      updated[field] = req.body[field];
+    }
+  });
 
-//   Note
-//     .findByIdAndUpdate(req.params.id, { $set: updated }, { new: true })
-//     .exec()
-//     .then(updatedWord => res.status(201).json(updatedWord.apiRepr()))
-//     .catch(err => res.status(500).json({ message: 'Something went wrong' }));
-// });
+  Note
+    .findByIdAndUpdate(req.params.id, { $set: updated }, { new: true })
+    .exec()
+    .then(updatedWord => res.status(201).json(updatedWord.apiRepr()))
+    .catch(err => res.status(500).json({ message: 'Something went wrong' }));
+});
 
 app.delete('/api/notes/:id/', (req, res) => {
   Note
@@ -147,21 +147,6 @@ app.delete('/api/notes/:id/', (req, res) => {
       res.status(500).send({ message: 'Error from Delete' });
     });
 });
-
-// app.delete('/api/notes/:name/:words', (req, res) => {
-//   Note
-//     .findByIdAndRemove(req.params.id)
-//     .then(result => {
-//       console.log(result);
-//       res.status(204).send({ message: 'Deleted' });
-//     })
-//     .catch(err => {
-//       console.log(err);
-//       res.status(500).send({ message: 'Error from Delete' });
-//     });
-// });
-
-
 
 // Serve the built client
 app.use(express.static(path.resolve(__dirname, '../client/build')));
@@ -220,16 +205,11 @@ if (require.main === module) {
 
 module.exports = { app, runServer, closeServer };
 
-//ask a refresher on setting up all of our endpoints (3) -- ok
 
 //how to connect server to react-redux (1) -- Use the API to connect to store 
 
 //automatically calling from the {connect} import 
 
-
-//making sure the database is up and running with mongo (2) -- 
-
-//make sure mongo is running in another terminal / get mLab connected 
 
 
 //Tuesday accomplishments
@@ -240,4 +220,3 @@ module.exports = { app, runServer, closeServer };
 
 //Backend --
 
-//Endpoints are working on POSTMAN
