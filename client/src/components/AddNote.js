@@ -16,16 +16,17 @@ export class AddNote extends React.Component {
 
   submitPress(event) {
     event.preventDefault();
-    const text = this.textInput.value.trim();
+    console.log(this.textInput.value.trim())
+    const text = this.textInput.value.trim()
     if (text && this.props.onAdd) {
       this.props.onAdd(this.textInput.value);
     }
 
-    console.log(textInput)
-    this.textInput.value = '';
+    // console.log(textInput)
+    // this.textInput.value = '';
 
 
-    // this.props.dispatch(abcd(textInput))
+    // this.props.dispatch(addNote(text))
   }
 
   render() {
@@ -34,6 +35,7 @@ export class AddNote extends React.Component {
         <form onSubmit={this.props.onSubmit} aria-label="enter form">
           <input
             type="text"
+            ref={input => this.textInput = input}
             name="addInput"
             placeholder="vocabulary word"
             value={this.props.numberInput}
