@@ -25,10 +25,21 @@ const initialState = {
 // this.answerCorrectly(this.state.numberInput, this.state.answer);
 
 export const noteHeroReducer = (state = initialState, action) => {
+
+
+        // let cards = state.cards.map((card, cardIndex) => {
+        //     if (cardIndex !== action.cardIndex) {
+        //         return card;
+        //     }
+
   if (action.type === ADD_NOTE) {
     return Object.assign({}, state, {
       cards: [...state.cards, {word: action.word, definition: action.definition}],
     });
   }
    return state;
+
 };
+// })
+
+
