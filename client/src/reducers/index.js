@@ -1,7 +1,7 @@
 import { ADD_NOTE, TOGGLE_NOTE } from '../actions';
 
 const initialState = {
-    card: 
+    notes: 
         [{words: "example1",
         definition: "example1"},
         {words: "example2",

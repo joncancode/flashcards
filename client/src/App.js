@@ -21,3 +21,6 @@ class App extends React.Component {
 }
 
 export default App;
+
+//rewrite imports, files, and components  capital first letter and capital letters for any additional words 
+//---------------------> NoteCards  instead of Notecards // NoteText vs Notetext

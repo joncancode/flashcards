@@ -106,7 +106,7 @@ app.post('/api/notes/:name/:words', (req, res) => { // this is the post for when
 app.put('/api/notes/:name/:words', (req, res) => { }
 
 
-app.delete('/api/notes/:name/, authenticate, (req, res) => {
+app.delete('/api/notes/:name/, (req, res) => {
   Note
     .findByIdAndRemove(req.params.id)
     .then(result => {
@@ -119,7 +119,7 @@ app.delete('/api/notes/:name/, authenticate, (req, res) => {
     });
 });
 
-app.delete('/api/notes/:name/:words', authenticate, (req, res) => {
+app.delete('/api/notes/:name/:words', (req, res) => {
   Note
     .findByIdAndRemove(req.params.id)
     .then(result => {
@@ -184,9 +184,16 @@ if (require.main === module) {
 
 module.exports = { app, runServer, closeServer };
 
-//ask a refresher on setting up all of our endpoints
-//how to connect server to react-redux
-//making sure the database is up and running with mongo 
+//ask a refresher on setting up all of our endpoints (3) -- ok
+
+//how to connect server to react-redux (1) -- Use the API to connect to store 
+
+//automatically calling from the {connect} import 
+
+
+//making sure the database is up and running with mongo (2) -- 
+
+//make sure mongo is running in another terminal / get mLab connected 
 
 
 //Tuesday accomplishments

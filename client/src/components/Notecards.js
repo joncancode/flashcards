@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 
-import './Notecards.css';
+import './Notecards.css'; // can make it with import {nameOfSomething} from __file__
 
 import Notetext from './Notetext.js';
 
