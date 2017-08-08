@@ -128,6 +128,7 @@ app.put('/api/notes/:id', (req, res) => {
     }
   });
 
+
   Note
     .findByIdAndUpdate(req.params.id, { $set: updated }, { new: true })
     .exec()
