@@ -38,7 +38,7 @@ app.get('/api/notes', (req, res) => {
 //homepage -> press notes button -> get here:
 
 
-app.get('/api/notes/:name', (req, res) => {
+app.get('/api/notes/:id', (req, res) => {
   console.log('get all is happening');
   Note
     .findById()
@@ -58,7 +58,7 @@ app.get('/api/notes/:name', (req, res) => {
 
 
 
-app.get('/api/notes/:name/:words', (req, res) => {
+app.get('/api/notes/:word/:words', (req, res) => {
   console.log('get all is happening');
   Note
     .findById()
@@ -77,7 +77,7 @@ app.get('/api/notes/:name/:words', (req, res) => {
 // to add for when we work on first screen app.post('/api/notes/', (req, res)
 
 
-app.post('/api/notes/:name', (req, res) => { //this is the pose when we are clicking on the notes
+app.post('/api/notes', (req, res) => { //this is the pose when we are clicking on the notes
   const requiredFields = ['word', 'definition'];
   for(let i=0; i<requiredFields.length; i++) {
     const field = requiredFields[i];
@@ -112,54 +112,8 @@ app.post('/api/notes/:name', (req, res) => { //this is the pose when we are clic
       res.status(500).json({ message: 'Internal error from GET' });
     });
 });
-// app.post('/beers', (req, res) => {
-//   const requiredFields = ['name', 'style', 'abv', 'description', 'reviews', 'brewery', 'ibu', ];
-//   for (let i=0; i<requiredFields.length; i++) {
-//     const field = requiredFields[i];
-//     if (!(field in req.body)) {
-//       const message = `Missing \`${field}\` in request body`;
-//       console.error(message);
-//       return res.status(400).send(message);
-//     }
-//   }
 
-//   Beer
-//     .create({
-//       name: req.body.name,
-//       abv: req.body.abv,
-//       style: req.body.style,
-//       reviews: req.body.reviews,
-//       brewery: req.body.brewery,
-//       ibu: req.body.ibu,
-//       description: req.body.description})
-//     .then(
-//       beer => res.status(201).json(beer.apiRepr()))
-//     .catch(err => {
-//       console.error(err);
-//       res.status(500).json({message: 'Internal server error'});
-//     });
-// });
-
-
-
-
-// app.post('/api/notes/:name/:words', (req, res) => { // this is the post for when we click on the card and we are 
-// //   console.log('get all is happening');
-// //   Note
-// //     .find()
-// //     .then(Notes => {
-// //       console.log(Notes);
-// //       res.status(200).json(Notes);
-// //     })
-// //     .catch(err => {
-// //       console.log('testing');
-// //       res.status(500).json({ message: 'Internal error from GET' });
-// //     });
-// });
-
-// app.put('/api/notes/:name/:words', (req, res) => { });
-
-// app.put('/posts/:id', (req, res) => {
+// app.put('/api/notes/:id', (req, res) => {
 //   if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
 //     res.status(400).json({
 //       error: 'Request path id and request body id values must match'
@@ -174,25 +128,25 @@ app.post('/api/notes/:name', (req, res) => { //this is the pose when we are clic
 //     }
 //   });
 
-//   BlogPost
+//   Note
 //     .findByIdAndUpdate(req.params.id, { $set: updated }, { new: true })
 //     .exec()
-//     .then(updatedPost => res.status(201).json(updatedPost.apiRepr()))
+//     .then(updatedWord => res.status(201).json(updatedWord.apiRepr()))
 //     .catch(err => res.status(500).json({ message: 'Something went wrong' }));
 // });
 
-// app.delete('/api/notes/:name/', (req, res) => {
-//   Note
-//     .findByIdAndRemove(req.params.id)
-//     .then(result => {
-//       console.log(result);
-//       res.status(204).send({ message: 'Deleted' });
-//     })
-//     .catch(err => {
-//       console.log(err);
-//       res.status(500).send({ message: 'Error from Delete' });
-//     });
-// });
+app.delete('/api/notes/:id/', (req, res) => {
+  Note
+    .findByIdAndRemove(req.params.id)
+    .then(result => {
+      console.log(result);
+      res.status(204).send({ message: 'Deleted' });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).send({ message: 'Error from Delete' });
+    });
+});
 
 // app.delete('/api/notes/:name/:words', (req, res) => {
 //   Note
