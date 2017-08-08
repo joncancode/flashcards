@@ -23,7 +23,8 @@ export class Notecards extends React.Component {
 
     render() {
         const cards = this.props.cards.map((card, index) =>
-            <Card key={index} {...card} />
+            <Card key={index} {...card} onAdd={word => this.addNote(word)}/>
+
         );
         return (
             <div className="words">
