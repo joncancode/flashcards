@@ -7,18 +7,39 @@ import './Notecards.css';
 
 import Card from './Card.js';
 
+import {addNote} from '../actions';
+
 export class Notecards extends React.Component {
 
-  render() {
-    return (
-      <div className="notecards">
-        {this.props.cards.map((card, i) => (
-            <Card key={i} {...card} />
-        ))}
-      </div>
-    );
-  }
-}
+    addNote(word, definition) {
+        this.props.dispatch(addNote(word, definition, this.props.cardIndex));
+    }
+
+    render() {
+        const cards = this.props.cards.map((card, index) =>
+            <Card key={index} {...card} />
+        );
+        return (
+            <div className="words">
+                <h3>{this.props.words}</h3>
+                {cards}
+                
+            </div>
+        );
+    }
+
+
+//   render() {
+//     return (
+//       <div className="notecards">
+//         {this.props.cards.map((card, i) => (
+//             <Card key={i} {...card} />
+//         ))}
+//       </div>
+//     );
+//   }
+
+ }
 
 // -----for the total number of notes----- 
 
