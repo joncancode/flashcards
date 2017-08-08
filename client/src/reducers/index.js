@@ -1,4 +1,4 @@
-import { ADD_NOTE, TOGGLE_NOTE } from '../actions';
+import { ADD_NOTE } from '../actions';
 
 const initialState = {
   cards: [
@@ -24,18 +24,10 @@ const initialState = {
 // this.answerCorrectly(this.state.numberInput, this.state.answer);
 
 export const noteHeroReducer = (state = initialState, action) => {
-  return state;
   if (action.type === ADD_NOTE) {
     return Object.assign({}, state, {
-      cards: [...state.cards.words, action.word],
-      cards: [...state.cards.definition, action.definition]
+      cards: [...state.cards, {word: action.word, definition: action.definition}],
     });
   }
-  // else if (action.type === TOGGLE_NOTE) {
-  //      state = Object.assign({}, state, {
-  //          flipped: !state.flipped
-  //     });
-  //     return state;
-  // }
-  // return state;
+   return state;
 };
