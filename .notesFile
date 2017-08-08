@@ -1,10 +1,18 @@
 Frontend
 
--- create a new card on the frontend 
--- 
+-- add values to the cards since we can make cards  
+
 
 Backend
 
 -- getting async setup {React Routers}
 # also connecting the back and the front 
---> note sending to database 
+--> note sending to database
+
+Stretch goals  
+
+-- add another button to erase a card
+-- adding a front page with categories 
+-- make the card take up the entire page 
+-- deployment 
+-- testing 

@@ -206,16 +206,13 @@ if (require.main === module) {
 
 module.exports = { app, runServer, closeServer };
 
-
-//how to connect server to react-redux (1) -- Use the API to connect to store 
-
-//automatically calling from the {connect} import 
+ 
 
 
 
 //Tuesday accomplishments
 
-//Frontend --
+//Frontend -- 
 
 //we want to see that we are changing the state 
 
