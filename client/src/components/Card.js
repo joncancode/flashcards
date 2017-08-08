@@ -21,13 +21,13 @@ export default class Card extends React.Component {
   render() {
     if (this.state.flipped) {
       return (
-        <div className="card" onClick={this._onFlip}>
+        <div className="cardback" onClick={this._onFlip}>
           <BackText text={this.props.definition} />
         </div>
       );
     }
     return (
-      <div className="card" onClick={this._onFlip}>
+      <div className="cardfront" onClick={this._onFlip}>
         <FrontText text={this.props.words} />
       </div>
     );
