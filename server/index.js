@@ -1,5 +1,5 @@
 //we need to add endpoints -- (/api/notes, /api/notes/:name, api/notes/:name/)
-'use strict'
+'use strict';
 
 const path = require('path');
 const express = require('express');
@@ -78,6 +78,20 @@ app.get('/api/notes/:name/:words', (req, res) => {
 
 
 app.post('/api/notes/:name', (req, res) => { //this is the pose when we are clicking on the notes
+  const requiredFields = ['word', 'definition'];
+  for(let i=0; i<requiredFields.length; i++) {
+    const field = requiredFields[i];
+    if(!(field in req.body)) {
+      const message = `Missing \`${field}\` in request body`;
+      console.error(message);
+      return res.status(400).send(message);
+    }
+  }
+
+  Note
+    .create({
+      word:
+    })
 //   console.log('get all is happening');
 //   Note
 //     .find()
@@ -89,6 +103,34 @@ app.post('/api/notes/:name', (req, res) => { //this is the pose when we are clic
 //       console.log('testing');
 //       res.status(500).json({ message: 'Internal error from GET' });
 //     });
+});
+
+app.post('/beers', (req, res) => {
+  const requiredFields = ['name', 'style', 'abv', 'description', 'reviews', 'brewery', 'ibu', ];
+  for (let i=0; i<requiredFields.length; i++) {
+    const field = requiredFields[i];
+    if (!(field in req.body)) {
+      const message = `Missing \`${field}\` in request body`;
+      console.error(message);
+      return res.status(400).send(message);
+    }
+  }
+
+  Beer
+    .create({
+      name: req.body.name,
+      abv: req.body.abv,
+      style: req.body.style,
+      reviews: req.body.reviews,
+      brewery: req.body.brewery,
+      ibu: req.body.ibu,
+      description: req.body.description})
+    .then(
+      beer => res.status(201).json(beer.apiRepr()))
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({message: 'Internal server error'});
+    });
 });
 
 
@@ -108,7 +150,7 @@ app.post('/api/notes/:name/:words', (req, res) => { // this is the post for when
 //     });
 });
 
-app.put('/api/notes/:name/:words', (req, res) => { })
+app.put('/api/notes/:name/:words', (req, res) => { });
 
 app.put('/posts/:id', (req, res) => {
   if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
@@ -167,14 +209,15 @@ app.use(express.static(path.resolve(__dirname, '../client/build')));
 // Unhandled requests which aren't for the API should serve index.html so
 // client-side routing using browserHistory can function
 app.get(/^(?!\/api(\/|$))/, (req, res) => {
-    const index = path.resolve(__dirname, '../client/build', 'index.html');
-    res.sendFile(index);
+  const index = path.resolve(__dirname, '../client/build', 'index.html');
+  res.sendFile(index);
 });
 
 let server;
-function runServer(dbUrl) {
-    return new Promise((resolve, reject) => {
-          mongoose.connect(dbUrl, err => {
+function runServer(dbUrl, port = PORT) {
+  console.log(port);
+  return new Promise((resolve, reject) => {
+    mongoose.connect(dbUrl, err => {
       if (err) {
         return reject(err);
       }
@@ -184,16 +227,16 @@ function runServer(dbUrl) {
         console.log(`Your app is connected to db: ${DATABASE_URL}`);
 
       }
-        server = app.listen(PORT, () => {
-          console.log(`Your app is listening on port ${PORT}`);
-            resolve();
+      server = app.listen(port, () => {
+        console.log(`Your app is listening on port ${port}`);
+        resolve();
       })
         .on('error', err => {
           mongoose.disconnect();
           reject(err);
-          });
+        });
     });
-   });
+  });
 }
 
 function closeServer() {
