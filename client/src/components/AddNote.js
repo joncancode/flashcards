@@ -6,7 +6,8 @@ import './AddNote.css';
 export function AddNote(props) {
   return (
     <div className="addnote">
-      <form onSubmit={props.onSubmit} aria-label="enter form">
+      <form onSubmit={props.onSubmit}
+      aria-label="enter form">
         <input
           type="text"
           name="addInput"
@@ -16,11 +17,14 @@ export function AddNote(props) {
           aria-label="enter a vocab word"
           required
         />
-        <button type="submit" value="Submit">
+        <button type="submit" 
+        value="Submit"
+        //onClick={this.props.addNote}
+        >
           ADD NOTE
         </button>
         <br />
-                <textarea
+         <textarea
           rows="2"
           cols="25"
           aria-label="enter definition"
