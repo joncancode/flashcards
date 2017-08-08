@@ -1,9 +1,10 @@
 //we need to add endpoints -- (/api/notes, /api/notes/:name, api/notes/:name/)
+'use strict'
+
 const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const morgan = require('morgan');
 
 mongoose.Promise = global.Promise;
 
@@ -14,9 +15,7 @@ const { Note } = require('./models');
 const app = express();
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ 
-    extended: true
- }));
+
 app.use(express.static('public'));
 
 
@@ -109,10 +108,32 @@ app.post('/api/notes/:name/:words', (req, res) => { // this is the post for when
 //     });
 });
 
-app.put('/api/notes/:name/:words', (req, res) => { }
+app.put('/api/notes/:name/:words', (req, res) => { })
 
 
-app.delete('/api/notes/:name/, (req, res) => {
+app.put('/posts/:id', (req, res) => {
+  if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
+    res.status(400).json({
+      error: 'Request path id and request body id values must match'
+    });
+  }
+
+  const updated = {};
+  const updateableFields = ['words', 'definition'];
+  updateableFields.forEach(field => {
+    if (field in req.body) {
+      updated[field] = req.body[field];
+    }
+  });
+
+  BlogPost
+    .findByIdAndUpdate(req.params.id, { $set: updated }, { new: true })
+    .exec()
+    .then(updatedPost => res.status(201).json(updatedPost.apiRepr()))
+    .catch(err => res.status(500).json({ message: 'Something went wrong' }));
+});
+
+app.delete('/api/notes/:name/', (req, res) => {
   Note
     .findByIdAndRemove(req.params.id)
     .then(result => {

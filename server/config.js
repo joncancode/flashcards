@@ -10,4 +10,4 @@ exports.TEST_DATABASE_URL = (
  'mongodb://localhost/test-notehero');
 exports.PORT = process.env.PORT || 8080;
 
-mongodump -h ds135912.mlab.com:35912 -d notehero -u 'dev' -p '1' -o ~/
+// mongodump -h ds135912.mlab.com:35912 -d notehero -u 'dev' -p '1' -o ~/
