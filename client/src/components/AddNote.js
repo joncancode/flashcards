@@ -19,11 +19,12 @@ export function AddNote(props) {
         />
         <button type="submit" 
         value="Submit"
-        onClick={this.props.addNote.bind(null, i)}>
+        //onClick={this.props.addNote}
+        >
           ADD NOTE
         </button>
         <br />
-                <textarea
+         <textarea
           rows="2"
           cols="25"
           aria-label="enter definition"

@@ -9,13 +9,13 @@ const initialState = {
     }
 
 
-    submitNumber(e) {
-    e.preventDefault();
-    this.setState({
-      listOfGuesses: [...this.state.listOfGuesses, this.state.numberInput], 
-      distanceAway: checkDistance(this.state.numberInput, this.state.answer)
-    });
-    this.answerCorrectly(this.state.numberInput, this.state.answer);
+    // submitNumber(e) {
+    // e.preventDefault();
+    // this.setState({
+    //   listOfGuesses: [...this.state.listOfGuesses, this.state.numberInput], 
+    //   distanceAway: checkDistance(this.state.numberInput, this.state.answer)
+    // });
+    // this.answerCorrectly(this.state.numberInput, this.state.answer);
 
 export const noteHeroReducer = (state = initialState, action) => {
     return state;
