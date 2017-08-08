@@ -3,14 +3,20 @@ const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const morgan = require('morgan');
 
 mongoose.Promise = global.Promise;
+
 const { PORT, DATABASE_URL } = require('./config');
+
 const { Note } = require('./models');
 
 const app = express();
+
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ 
+    extended: true
+ }));
 app.use(express.static('public'));
 
 
@@ -106,7 +112,7 @@ app.post('/api/notes/:name/:words', (req, res) => { // this is the post for when
 app.put('/api/notes/:name/:words', (req, res) => { }
 
 
-app.delete('/api/notes/:name/, authenticate, (req, res) => {
+app.delete('/api/notes/:name/, (req, res) => {
   Note
     .findByIdAndRemove(req.params.id)
     .then(result => {
@@ -119,7 +125,7 @@ app.delete('/api/notes/:name/, authenticate, (req, res) => {
     });
 });
 
-app.delete('/api/notes/:name/:words', authenticate, (req, res) => {
+app.delete('/api/notes/:name/:words', (req, res) => {
   Note
     .findByIdAndRemove(req.params.id)
     .then(result => {
@@ -138,10 +144,6 @@ app.delete('/api/notes/:name/:words', authenticate, (req, res) => {
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 
-
-
-
-
 // Unhandled requests which aren't for the API should serve index.html so
 // client-side routing using browserHistory can function
 app.get(/^(?!\/api(\/|$))/, (req, res) => {
@@ -150,29 +152,66 @@ app.get(/^(?!\/api(\/|$))/, (req, res) => {
 });
 
 let server;
-function runServer(port=3001) {
+function runServer(dbUrl) {
     return new Promise((resolve, reject) => {
-        server = app.listen(port, () => {
+          mongoose.connect(dbUrl, err => {
+      if (err) {
+        return reject(err);
+      }
+      else{
+        console.log(`Your app is connected to db: ${DATABASE_URL}`);
+
+      }
+        server = app.listen(PORT, () => {
+          console.log(`Your app is listening on port ${PORT}`);
             resolve();
-        }).on('error', reject);
+      })
+        .on('error', err => {
+          mongoose.disconnect();
+          reject(err);
+          });
     });
+   });
 }
 
 function closeServer() {
+  return mongoose.disconnect().then(() => {
     return new Promise((resolve, reject) => {
-        server.close(err => {
-            if (err) {
-                return reject(err);
-            }
-            resolve();
-        });
+      console.log('Closing server');
+      server.close(err => {
+        if (err) {
+          return reject(err);
+        }
+        resolve();
+      });
     });
+  });
 }
 
 if (require.main === module) {
-    runServer();
+  runServer(DATABASE_URL).catch(err => console.error(err));
 }
 
-module.exports = {
-    app, runServer, closeServer
-};
+module.exports = { app, runServer, closeServer };
+
+//ask a refresher on setting up all of our endpoints (3) -- ok
+
+//how to connect server to react-redux (1) -- Use the API to connect to store 
+
+//automatically calling from the {connect} import 
+
+
+//making sure the database is up and running with mongo (2) -- 
+
+//make sure mongo is running in another terminal / get mLab connected 
+
+
+//Tuesday accomplishments
+
+//Frontend --
+
+//we want to see that we are changing the state 
+
+//Backend --
+
+//Endpoints are working on POSTMAN
