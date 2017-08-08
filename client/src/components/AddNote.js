@@ -20,7 +20,12 @@ export class AddNote extends React.Component {
     if (text && this.props.onAdd) {
       this.props.onAdd(this.textInput.value);
     }
+
+    console.log(textInput)
     this.textInput.value = '';
+
+
+    // this.props.dispatch(abcd(textInput))
   }
 
   render() {
