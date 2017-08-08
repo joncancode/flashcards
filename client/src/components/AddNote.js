@@ -31,6 +31,7 @@ export class AddNote extends React.Component {
     console.log(this.textInput.value.trim(), 'word');
     console.log(this.textArea.value.trim(), 'def');
 
+    console.log(this.props.dispatch(addNote(text)))
 
      this.props.dispatch(addNote(text))
 
