@@ -28,7 +28,7 @@ export class Notecards extends React.Component {
         );
         return (
             <div className="words">
-                <h3>{this.props.words}</h3>
+                <h3>{this.props.word}</h3>
                 {cards}
                
                 

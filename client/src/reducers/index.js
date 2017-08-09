@@ -5,13 +5,13 @@ import { ADD_NOTE, CHECK_OFF, DELETE_NOTE } from '../actions';
 const initialState = {
   cards: [
     {
-      words: '',
+      word: '',
       definition:
         '',
       id: uuid()
     },
     {
-      words: '',
+      word: '',
       definition:
         '',
       id: uuid()

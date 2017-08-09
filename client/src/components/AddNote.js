@@ -9,7 +9,7 @@ export class AddNote extends React.Component {
   constructor() {
     super();
     this.state = {
-      words: "",
+      word: "",
       definition: ""
     };
   }
@@ -30,7 +30,7 @@ export class AddNote extends React.Component {
     }))
 
     this.setState({
-      words: '',
+      word: '',
       definition: ''
     })
   }
@@ -42,15 +42,14 @@ export class AddNote extends React.Component {
         <form onSubmit={this.props.onSubmit} aria-label="enter form">
           <input
             type="text"
-            name="words"
+            name="word"
              //name="userInput"
-            value={this.state.words}
+            value={this.state.word}
             placeholder="vocabulary word"
             onChange={this.onChange}
             aria-label="enter a vocab word"
             required
           />
-          <button onClick={() => postNotes()}>Fetch posts</button>
           <button type="submit" value="Submit" onClick={this.submitPress}>
             ADD NOTE
           </button>
