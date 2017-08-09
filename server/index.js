@@ -84,6 +84,7 @@ app.get('/api/notes/:id', (req, res) => {
 
 
 app.post('/api/notes', (req, res) => { //this is the pose when we are clicking on the notes
+  console.log('here we are');
   const requiredFields = ['word', 'definition'];
   for(let i=0; i<requiredFields.length; i++) {
     const field = requiredFields[i];
@@ -98,25 +99,28 @@ app.post('/api/notes', (req, res) => { //this is the pose when we are clicking o
     .create({
       word: req.body.word,
       definition: req.body.definition
-    })
+    }, {new: true})
     .then(
-      note => res.status(201).json(note.apiRepr()))
+      note => {
+        console.log(note.apiRepr());
+        res.status(201);
+      })
     .catch(err => {
       console.log(err);
       res.status(500).json({message: 'Internal server error'});
     });
 
-  console.log('get all is happening');
-  Note
-    .find()
-    .then(Notes => {
-      console.log(Notes);
-      res.status(200).json(Notes);
-    })
-    .catch(err => {
-      console.log('testing');
-      res.status(500).json({ message: 'Internal error from GET' });
-    });
+  // console.log('get all is happening');
+  // Note
+  //   .find()
+  //   .then(Notes => {
+  //     console.log(Notes);
+  //     res.status(200).json(Notes);
+  //   })
+  //   .catch(err => {
+  //     console.log('testing');
+  //     res.status(500).json({ message: 'Internal error from GET' });
+  //   });
 });
 
 app.put('/api/notes/:id', (req, res) => {
