@@ -1,6 +1,6 @@
 import uuid from 'uuid/v4';
 
-import { ADD_NOTE, CHECK_OFF } from '../actions';
+import { ADD_NOTE, CHECK_OFF, DELETE_NOTE } from '../actions';
 
 const initialState = {
   cards: [
@@ -42,17 +42,20 @@ export const noteHeroReducer = (state = initialState, action) => {
         ]
       };
     case 'CHECK_OFF':
-      return;
-      state.map(
-        item =>
-          item.id === action.id
+      return state.map(
+        cards =>
+          cards.id === action.id
             ? {
-                ...item,
-                completed: !item.completed
+                ...cards,
+                completed: !cards.completed
               }
-            : item
+            : cards
       );
-
+    case 'DELETE_NOTE':
+      return state.filter(
+        cards =>
+          cards.id !== action.id
+      );
     default:
       return state;
   }

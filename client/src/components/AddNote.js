@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { addNote, checkOff } from '../actions';
+import { addNote, checkOff, deleteNote } from '../actions';
 
 import './AddNote.css';
 

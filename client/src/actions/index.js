@@ -13,6 +13,12 @@ export const checkOff = (id) => ({
     id
 });
 
+export const DELETE_NOTE = 'DELETE_OFF';
+export const deleteNote = (id) => ({
+    type: DELETE_NOTE,
+    id
+});
+
 
 //async action needs to be created
 // import redux Thunk 

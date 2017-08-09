@@ -22,6 +22,10 @@ export default class Card extends React.Component {
     this.props.checkOff(id);
   };
 
+    _handleDelete = id => {
+    this.props.deleteNote(id);
+  };
+
   render() {
     if (this.state.flipped) {
       return (
@@ -33,8 +37,9 @@ export default class Card extends React.Component {
     return (
       <div className="cardfront" onClick={this._onFlip}>
         <FrontText text={this.props.words} />
-        {/* <input onChange={ (id) => this._handleCompleted} type="checkbox"
-         /> */}
+        {/* <button onClick={(id) => this._handleDelete(id)}>delete</button> */}
+          {/* <input onChange={ (id) => this._handleCompleted} type="checkbox"
+         value={completed} />   */}
       </div>
     );
   }
