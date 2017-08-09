@@ -29,18 +29,18 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  cards: this.noteHeroReducer.cards
-  // [
-    // {
-    //   words: this.state.words,
-    //   definition: state.noteHereReducer.definition,
-    //   id: state.noteHereReducer.id
-    // }
-  // ]
-})
+// const mapStateToProps = (state) => ({
+//   cards: 
+//   // [
+//     // {
+//     //   words: this.state.words,                        // how to get the key and properties to work 
+//     //   definition: state.noteHereReducer.definition,
+//     //   id: state.noteHereReducer.id
+//     // }
+//   // ]
+// })
 
-export default connect(mapStateToProps)(App);
+export default connect()(App);
 
 //rewrite imports, files, and components  capital first letter and capital letters for any additional words 
 //---------------------> NoteCards  instead of Notecards // NoteText vs Notetext
