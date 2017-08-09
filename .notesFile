@@ -1,13 +1,14 @@
 Frontend
 
--- add values to the cards since we can make cards  
+-- add values to the cards since we can make cards 
+-- handle submit is acting properly  | not connected to post endpoint, but should be 
+-- reestablish printing out new cards
 
 
 Backend
 
--- getting async setup {React Routers}
-# also connecting the back and the front 
---> note sending to database
+-- get and accessing mLab vs local database 
+-- are the endpoints working everywhere correctly. 
 
 Stretch goals  
 
