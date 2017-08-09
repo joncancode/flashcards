@@ -4,9 +4,13 @@
 
 .App-header {
   background-color: darkblue;
-  height: 50px;
-  padding: 20px;
+  height: 80px;
+  padding: 2px;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
 }
 
 .App-intro {

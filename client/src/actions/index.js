@@ -1,10 +1,9 @@
-//add new word
+//add new wor
+
 export const ADD_NOTE = 'ADD_NOTE';
-export const addNote = ( word, definition, cardIndex ) => ({
+export const addNote = (note) => ({
     type: ADD_NOTE,
-    word,
-    definition,
-    cardIndex
+    note
 });
 
 //click on the card 

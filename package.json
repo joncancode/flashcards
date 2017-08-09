@@ -26,6 +26,10 @@
     "express": "^4.14.1",
     "http-proxy-middleware": "^0.17.3",
     "npm-run-all": "^4.0.1",
+    "uuid": "^3.1.0",
     "xp": "^1.0.1"
+  },
+  "devDependencies": {
+    "redux-logger": "^3.0.6"
   }
 }

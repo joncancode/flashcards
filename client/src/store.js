@@ -1,6 +1,9 @@
-import {createStore} from 'redux'
+import {createStore, applyMiddleware } from 'redux'
+import { createLogger } from 'redux-logger';
 
 import {noteHeroReducer} from './reducers';
 
-export default createStore(noteHeroReducer);
+const middlewares = [createLogger()];
+
+export default createStore(noteHeroReducer, undefined, applyMiddleware(...middlewares));
 

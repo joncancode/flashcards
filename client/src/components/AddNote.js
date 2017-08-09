@@ -6,38 +6,49 @@ import { addNote } from '../actions';
 import './AddNote.css';
 
 export class AddNote extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      //editing: false
+      words: "",
+      definition: ""
     };
-
-    this.submitPress = this.submitPress.bind(this);
   }
 
-  submitPress(event) {
-    event.preventDefault();
-    const text = this.textInput.value.trim();
-    if (text && this.props.onAdd) {
-      this.props.onAdd(this.textInput.value);
-      console.log("text added")
-    }
-    const def = this.textArea.value.trim();
-    if (def && this.props.onAdd) {
-      this.props.onAdd(this.textArea.value);
-      console.log("definition added")
-    }
+  onChange = e => {
+    const { name, value } = e.target;
 
-    console.log(this.textInput.value.trim(), 'word');
-    console.log(this.textArea.value.trim(), 'def');
+    this.setState({
+      [name]: value
+    })
+  }
 
-    this.props.dispatch(addNote(text))
+  submitPress = (e) => {
+    e.preventDefault();
+    // const text = this.textInput.value;
+    // if (text && this.props.onAdd) {
+    //   this.props.onAdd(this.textInput.value);
+    //   console.log("text added")
+    // }
+    // const def = this.textArea.value;
+    // if (def && this.props.onAdd) {
+    //   this.props.onAdd(this.textArea.value);
+    //   console.log("definition added")
+    // }
 
-    this.textInput.value = '';
-    this.textArea.value = '';
+    // console.log(this.textInput.value.trim(), 'word');
+    // console.log(this.textArea.value.trim(), 'def');
 
-    // console.log(textInput)
+    this.props.dispatch(addNote({
+      ...this.state
+    }))
+
+    this.setState({
+      words: '',
+      definition: ''
+    })
+
     // this.textInput.value = '';
+    // this.textArea.value = '';
 
   }
 
@@ -47,10 +58,10 @@ export class AddNote extends React.Component {
         <form onSubmit={this.props.onSubmit} aria-label="enter form">
           <input
             type="text"
-            ref={input => (this.textInput = input)}
-            name="addInput"
+            name="words"
+            value={this.state.words}
             placeholder="vocabulary word"
-            onChange={this.props.onChange}
+            onChange={this.onChange}
             aria-label="enter a vocab word"
             required
           />
@@ -59,9 +70,11 @@ export class AddNote extends React.Component {
           </button>
           <br />
           <textarea
+            onChange={this.onChange}
             rows="2"
             cols="25"
-            ref={textArea => (this.textArea = textArea)}
+            value={this.state.definition}
+            name="definition"
             aria-label="enter definition"
             placeholder="enter definition"
             required

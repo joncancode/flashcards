@@ -1,3 +1,5 @@
+import uuid from 'uuid/v4';
+
 import { ADD_NOTE } from '../actions';
 
 const initialState = {
@@ -6,12 +8,14 @@ const initialState = {
     {
       words: 'Closure',
       definition:
-        "an inner function that has access to the outer (enclosing) function's variables—scope chain"
+        "an inner function that has access to the outer (enclosing) function's variables—scope chain",
+        id: uuid()
     },
     {
       words: 'Hoisting',
       definition:
-        "JavaScript interpreter's action of moving all variable and function declarations to the top of the current scope"
+        "JavaScript interpreter's action of moving all variable and function declarations to the top of the current scope",
+        id: uuid()
     }
   ]
 };
@@ -25,21 +29,18 @@ const initialState = {
 // this.answerCorrectly(this.state.numberInput, this.state.answer);
 
 export const noteHeroReducer = (state = initialState, action) => {
-
-
-        // let cards = state.cards.map((card, cardIndex) => {
-        //     if (cardIndex !== action.cardIndex) {
-        //         return card;
-        //     }
-
-  if (action.type === ADD_NOTE) {
-    return Object.assign({}, state, {
-      cards: [...state.cards, {word: action.word, definition: action.definition}],
-    });
+  switch (action.type) {
+    case 'ADD_NOTE':
+      return {
+        ...state,
+        cards: [...state.cards, {
+          ...action.note,
+          id: uuid()
+        }]
+      }
+    default:
+      return state;
   }
-   return state;
-
-};
-// })
+}
 
 
