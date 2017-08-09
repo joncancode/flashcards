@@ -4,18 +4,18 @@ import { ADD_NOTE, CHECK_OFF, DELETE_NOTE } from '../actions';
 
 const initialState = {
   cards: [
-    {
-      words: '',
-      definition:
-        '',
-      id: uuid()
-    },
-    {
-      words: '',
-      definition:
-        '',
-      id: uuid()
-    }
+    // {
+    //   words: '',
+    //   definition:
+    //     '',
+    //   id: uuid()
+    // },
+    // {
+    //   words: '',
+    //   definition:
+    //     '',
+    //   id: uuid()
+    // }
   ]
 };
 
