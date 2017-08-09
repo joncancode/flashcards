@@ -7,4 +7,3 @@ import {noteHeroReducer} from './reducers';
 const middlewares = [createLogger()];
 
 export default createStore(noteHeroReducer, undefined, applyMiddleware(thunk, ...middlewares));
-
