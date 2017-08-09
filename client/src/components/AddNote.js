@@ -22,10 +22,10 @@ export class AddNote extends React.Component {
     })
   }
 
-  submitPress = (e) => {
+  handleSubmit = (e) => {
     e.preventDefault();
 
-    this.props.dispatch(addNote({
+    this.props.dispatch(postNotes({
       ...this.state
     }))
 
@@ -36,21 +36,23 @@ export class AddNote extends React.Component {
   }
 
 
+
   render() {
     return (
       <div className="addnote">
-        <form onSubmit={this.props.onSubmit} aria-label="enter form">
+        <form onSubmit={e => this.handleSubmit(e)}>
           <input
             type="text"
             name="word"
              //name="userInput"
             value={this.state.word}
+            aria-label="enter form"
             placeholder="vocabulary word"
             onChange={this.onChange}
             aria-label="enter a vocab word"
             required
           />
-          <button type="submit" value="Submit" onClick={this.submitPress}>
+          <button type="submit" value="Submit" >
             ADD NOTE
           </button>
           <br />
