@@ -24,7 +24,7 @@ export class AddNote extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-
+    console.log('form submit');
     this.props.dispatch(postNotes({
       ...this.state
     }))
