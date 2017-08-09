@@ -13,8 +13,7 @@ noteSchema.methods.apiRepr = function() {
   return {
     _id: this._id,
     word: this.word,
-    definition: this.defintion,
-    new:'just for fun'
+    definition: this.defintion
   };
 }; //
 

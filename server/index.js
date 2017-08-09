@@ -27,15 +27,15 @@ app.use(function (req, res, next) {
 
 // API endpoints go here!
 app.get('/api/notes', (req, res) => {
-  console.log('get all is happening');
+//  console.log('get all is happening');
   Note
     .find()
     .then(Notes => {
-      console.log(Notes);
+     // console.log(Notes);
       res.status(200).json(Notes); //Note is equal to the mongoose model being called in
     })
     .catch(err => {
-      console.log('testing');
+     // console.log('testing');
       res.status(500).json({ message: 'Internal error from GET' });
     });
 });
@@ -45,15 +45,15 @@ app.get('/api/notes', (req, res) => {
 
 
 app.get('/api/notes/:id', (req, res) => {
-  console.log('get all is happening');
+  //console.log('get all is happening');
   Note
     .findById()
     .then(Notes => {
-      console.log(Notes);
+     // console.log(Notes);
       res.status(200).json(Notes);
     })
     .catch(err => {
-      console.log('testing');
+     // console.log('testing');
       res.status(500).json({ message: 'Internal error from GET' });
     });
 });
@@ -85,24 +85,14 @@ app.get('/api/notes/:id', (req, res) => {
 
 app.post('/api/notes', (req, res) => { //this is the pose when we are clicking on the notes
   console.log('here we are');
-  const requiredFields = ['word', 'definition'];
-  for(let i=0; i<requiredFields.length; i++) {
-    const field = requiredFields[i];
-    if(!(field in req.body)) {
-      const message = `Missing \`${field}\` in request body`;
-      console.error(message);
-      return res.status(400).send(message);
-    }
-  }
-
+  console.log(req.body, 'requesting body');
   Note
     .create({
-      word: req.body.word,
-      definition: req.body.definition
-    }, {new: true})
+      word: req.body.newNote.word,
+      definition: req.body.newNote.definition
+    })
     .then(
       note => {
-        console.log(note.apiRepr());
         res.status(201);
       })
     .catch(err => {
