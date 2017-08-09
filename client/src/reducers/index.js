@@ -5,15 +5,15 @@ import { ADD_NOTE, CHECK_OFF, DELETE_NOTE } from '../actions';
 const initialState = {
   cards: [
     {
-      words: 'Closure',
+      words: '',
       definition:
-        "an inner function that has access to the outer (enclosing) function's variables—scope chain",
+        '',
       id: uuid()
     },
     {
-      words: 'Hoisting',
+      words: '',
       definition:
-        "JavaScript interpreter's action of moving all variable and function declarations to the top of the current scope",
+        '',
       id: uuid()
     }
   ]
