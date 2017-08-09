@@ -36,7 +36,7 @@ export default class Card extends React.Component {
     }
     return (
       <div className="cardfront" onClick={this._onFlip}>
-        <FrontText text={this.props.words} />
+        <FrontText text={this.props.word} />
         {/* <button onClick={(id) => this._handleDelete(id)}>delete</button> */}
           {/* <input onChange={ (id) => this._handleCompleted} type="checkbox"
          value={completed} />   */}

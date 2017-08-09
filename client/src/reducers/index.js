@@ -4,18 +4,18 @@ import { ADD_NOTE, CHECK_OFF, DELETE_NOTE } from '../actions';
 
 const initialState = {
   cards: [
-    // {
-    //   words: '',
-    //   definition:
-    //     '',
-    //   id: uuid()
-    // },
-    // {
-    //   words: '',
-    //   definition:
-    //     '',
-    //   id: uuid()
-    // }
+    {
+      words: '',
+      definition:
+        '',
+      id: uuid()
+    },
+    {
+      words: '',
+      definition:
+        '',
+      id: uuid()
+    }
   ]
 };
 
@@ -41,21 +41,23 @@ export const noteHeroReducer = (state = initialState, action) => {
           }
         ]
       };
-    case 'CHECK_OFF':
-      return state.map(
-        cards =>
-          cards.id === action.id
-            ? {
-                ...cards,
-                completed: !cards.completed
-              }
-            : cards
-      );
-    case 'DELETE_NOTE':
-      return state.filter(
-        cards =>
-          cards.id !== action.id
-      );
+      case 'SET_NOTES':
+      return { ...state, cards: action.allNotes};
+    // case 'CHECK_OFF':
+    //   return state.map(
+    //     cards =>
+    //       cards.id === action.id
+    //         ? {
+    //             ...cards,
+    //             completed: !cards.completed
+    //           }
+    //         : cards
+    //   );
+    // case 'DELETE_NOTE':
+    //   return state.filter(
+    //     cards =>
+    //       cards.id !== action.id
+    //   );
     default:
       return state;
   }

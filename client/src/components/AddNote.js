@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { addNote, checkOff, deleteNote } from '../actions';
+import { addNote, checkOff, deleteNote, postNotes } from '../actions';
 
 import './AddNote.css';
 
@@ -50,6 +50,7 @@ export class AddNote extends React.Component {
             aria-label="enter a vocab word"
             required
           />
+          <button onClick={() => postNotes()}>Fetch posts</button>
           <button type="submit" value="Submit" onClick={this.submitPress}>
             ADD NOTE
           </button>
