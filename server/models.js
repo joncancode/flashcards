@@ -14,8 +14,9 @@ noteSchema.methods.apiRepr = function() {
     _id: this._id,
     word: this.word,
     definition: this.defintion,
+    new:'just for fun'
   };
-};
+}; //
 
 
 const Note = mongoose.model('Note', noteSchema);
