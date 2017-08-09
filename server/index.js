@@ -26,7 +26,7 @@ app.get('/api/notes', (req, res) => {
     .find()
     .then(Notes => {
       console.log(Notes);
-      res.status(200).json(Notes);
+      res.status(200).json(Notes); //Note is equal to the mongoose model being called in
     })
     .catch(err => {
       console.log('testing');
@@ -58,19 +58,19 @@ app.get('/api/notes/:id', (req, res) => {
 
 
 
-app.get('/api/notes/:word/:words', (req, res) => {
-  console.log('get all is happening');
-  Note
-    .findById()
-    .then(Notes => {
-      console.log(Notes);
-      res.status(200).json(Notes);
-    })
-    .catch(err => {
-      console.log('testing');
-      res.status(500).json({ message: 'Internal error from GET' });
-    });
-});
+// app.get('/api/notes/:word/:words', (req, res) => {
+//   console.log('get all is happening');
+//   Note
+//     .findById()
+//     .then(Notes => {
+//       console.log(Notes);
+//       res.status(200).json(Notes);
+//     })
+//     .catch(err => {
+//       console.log('testing');
+//       res.status(500).json({ message: 'Internal error from GET' });
+//     });
+// });
 
 //now we are looking at the word with the "definiton" / "example"
 

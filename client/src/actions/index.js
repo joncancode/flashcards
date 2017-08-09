@@ -1,3 +1,12 @@
+//async action
+export const fetchNotes = () =>{
+    return (dispatch) => { //we are returning another function for to us thunk so we can connect to the ajax call 
+      fetch('http://localhost:8080/api/notes' )  //redux-thunk gives us access to the dispatch -- from our local host (connecting to the server)
+  .then(response =>  response.json())
+  .then(json => console.log('parsed json', json))
+  .catch(ex => console.log('parsing failed', ex))                     
+    }
+}
 //add new wor
 
 export const ADD_NOTE = 'ADD_NOTE';
