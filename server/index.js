@@ -84,7 +84,6 @@ app.get('/api/notes/:id', (req, res) => {
 
 
 app.post('/api/notes', (req, res) => { //this is the pose when we are clicking on the notes
-  console.log('here we are');
   console.log(req.body, 'requesting body');
   Note
     .create({
@@ -93,7 +92,7 @@ app.post('/api/notes', (req, res) => { //this is the pose when we are clicking o
     })
     .then(
       note => {
-        res.status(201);
+        res.status(201).json(note);
       })
     .catch(err => {
       console.log(err);

@@ -1,5 +1,3 @@
-import uuid from 'uuid/v4';
-
 import { ADD_NOTE, CHECK_OFF, DELETE_NOTE } from '../actions';
 
 const initialState = {
@@ -36,7 +34,6 @@ export const noteHeroReducer = (state = initialState, action) => {
           ...state.cards,
           {
             ...action.note,
-            id: uuid(),
             completed: false
           }
         ]

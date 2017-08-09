@@ -24,8 +24,11 @@ export const postNotes = (newNote) =>{
         body: JSON.stringify({newNote}) 
         }) //redux-thunk gives us access to the dispatch -- from our local host (connecting to the server)
   .then(response =>  response.json())
-  .then(json => dispatch(addNote(json)))
-//   .then(json => console.log(json))   //this is where you pass in a dispatched action so that you can recieve the information -- same as | console.log('parsed json', json)
+  .then(json => {
+    dispatch(addNote(json))
+    console.log('json', json)
+  })
+  // .then(json => console.log(json))   //this is where you pass in a dispatched action so that you can recieve the information -- same as | console.log('parsed json', json)
   .catch(ex => console.log('parsing failed', ex))                     
     }
 }

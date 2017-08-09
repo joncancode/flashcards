@@ -23,7 +23,10 @@ export class Notecards extends React.Component {
 
     render() {
         const cards = this.props.cards.map((card) =>
-            <Card key={card.id} {...card} onAdd={word => this.addNote(word)}/>
+            <Card key={card.id} {...card} 
+            onAdd={word => this.addNote(word)}
+           // _handleDelete={word => this.deleteNote(word)}
+            />
 
         );
         return (
