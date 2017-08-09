@@ -8,7 +8,7 @@ import {fetchNotes} from './actions'
 class App extends React.Component {
  
  componentDidMount() {
-   console.log('This shit works') //acts as soon as the component loads -- should see in the counsole and lest us know an ACTION is ready to be dispatched
+   console.log('This stuff works') //acts as soon as the component loads -- should see in the counsole and lest us know an ACTION is ready to be dispatched
    this.props.dispatch(fetchNotes())
  }
  
