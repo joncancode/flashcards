@@ -42,6 +42,10 @@ export class AddNote extends React.Component {
       ...this.state
     }))
 
+    //dispatch the action inside the submitPress ^
+    //pass in the value from the input 
+   
+
     this.setState({
       words: '',
       definition: ''
@@ -59,6 +63,7 @@ export class AddNote extends React.Component {
           <input
             type="text"
             name="words"
+             //name="userInput"
             value={this.state.words}
             placeholder="vocabulary word"
             onChange={this.onChange}

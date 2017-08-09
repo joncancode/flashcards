@@ -13,3 +13,9 @@ export const toggleNote = () => ({
 });
 
 
+//async action needs to be created
+// import redux Thunk 
+// pass the action as an argument 
+// server will get it throught he req.body
+
+//server will return a response 
