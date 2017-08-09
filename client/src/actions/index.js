@@ -7,9 +7,10 @@ export const addNote = (note) => ({
 });
 
 //click on the card 
-export const TOGGLE_NOTE = 'TOGGLE_NOTE';
-export const toggleNote = () => ({
-    type: TOGGLE_NOTE
+export const CHECK_OFF = 'CHECK_OFF';
+export const checkOff = (id) => ({
+    type: CHECK_OFF,
+    id
 });
 
 

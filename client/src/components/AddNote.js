@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { addNote } from '../actions';
+import { addNote, checkOff } from '../actions';
 
 import './AddNote.css';
 
@@ -24,37 +24,17 @@ export class AddNote extends React.Component {
 
   submitPress = (e) => {
     e.preventDefault();
-    // const text = this.textInput.value;
-    // if (text && this.props.onAdd) {
-    //   this.props.onAdd(this.textInput.value);
-    //   console.log("text added")
-    // }
-    // const def = this.textArea.value;
-    // if (def && this.props.onAdd) {
-    //   this.props.onAdd(this.textArea.value);
-    //   console.log("definition added")
-    // }
-
-    // console.log(this.textInput.value.trim(), 'word');
-    // console.log(this.textArea.value.trim(), 'def');
 
     this.props.dispatch(addNote({
       ...this.state
     }))
 
-    //dispatch the action inside the submitPress ^
-    //pass in the value from the input 
-   
-
     this.setState({
       words: '',
       definition: ''
     })
-
-    // this.textInput.value = '';
-    // this.textArea.value = '';
-
   }
+
 
   render() {
     return (

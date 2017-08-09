@@ -18,6 +18,10 @@ export default class Card extends React.Component {
 
   _onFlip = () => this.setState({ flipped: !this.state.flipped });
 
+  _handleCompleted = id => {
+    this.props.checkOff(id);
+  };
+
   render() {
     if (this.state.flipped) {
       return (
@@ -29,6 +33,8 @@ export default class Card extends React.Component {
     return (
       <div className="cardfront" onClick={this._onFlip}>
         <FrontText text={this.props.words} />
+        {/* <input onChange={ (id) => this._handleCompleted} type="checkbox"
+         /> */}
       </div>
     );
   }
