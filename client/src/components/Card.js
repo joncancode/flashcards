@@ -12,15 +12,11 @@ export default class Card extends React.Component {
     flipped: false
   };
 
-  //if false -> show this
-
-  //this.props.card.map (comes from redux)
-
   _onFlip = () => this.setState({ flipped: !this.state.flipped });
 
-  _handleCompleted = id => {
-    this.props.checkOff(id);
-  };
+  // _handleCompleted = id => {
+  //   this.props.checkOff(id);
+  // };
 
     _handleDelete = id => {
       console.log("id", id)

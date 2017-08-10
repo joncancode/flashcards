@@ -2,29 +2,8 @@
 //import { ADD_NOTE, CHECK_OFF, DELETE_NOTE } from '../actions';
 
 const initialState = {
-  cards: [
-    {
-    //   // word: '',
-    //   // definition:
-    //   //   '',
-    //   // id: uuid()
-    // },
-    // {
-    //   word: '',
-    //   definition:
-    //     '',
-    //   id: uuid()
-    }
-  ]
+  cards: [ {  } ]
 };
-
-// submitNumber(e) {
-// e.preventDefault();
-// this.setState({
-//   listOfGuesses: [...this.state.listOfGuesses, this.state.numberInput],
-//   distanceAway: checkDistance(this.state.numberInput, this.state.answer)
-// });
-// this.answerCorrectly(this.state.numberInput, this.state.answer);
 
 export const noteHeroReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -51,6 +30,7 @@ export const noteHeroReducer = (state = initialState, action) => {
     //           }
     //         : cards
     //   );
+    
     case 'DELETE_NOTE':
       return state.filter(
         cards =>

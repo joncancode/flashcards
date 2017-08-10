@@ -75,7 +75,7 @@ export const postNotes = (newNote) =>{
 // }
 
 // asyn action -- delete 
-export const deleteOneNote = (newNote) =>{
+export const isthistheone = (newNote) =>{
     return (dispatch) => { //we are returning another function for to us thunk so we can connect to the ajax call 
       fetch('http://localhost:8080/api/notes' , { 
         method: 'DELETE',
