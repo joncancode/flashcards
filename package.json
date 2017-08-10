@@ -29,6 +29,7 @@
     "http-proxy-middleware": "^0.17.3",
     "npm-run-all": "^4.0.1",
     "react-draggable": "^2.2.6",
+    "react-router-dom": "^4.1.2",
     "redux-thunk": "^2.2.0",
     "uuid": "^3.1.0",
     "xp": "^1.0.1"
