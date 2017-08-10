@@ -135,7 +135,7 @@ app.put('/api/notes/:id', (req, res) => {
     .catch(err => res.status(500).json({ message: 'Something went wrong' }));
 });
 
-app.delete('/api/notes/:id/', (req, res) => {
+app.delete('/api/notes', (req, res) => {
   Note
     .findByIdAndRemove(req.body.id)
     .then(result => {

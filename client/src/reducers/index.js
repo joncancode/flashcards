@@ -2,7 +2,7 @@
 //import { ADD_NOTE, CHECK_OFF, DELETE_NOTE } from '../actions';
 
 const initialState = {
-  cards: [ {  } ]
+  cards: []
 };
 
 export const noteHeroReducer = (state = initialState, action) => {
