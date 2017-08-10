@@ -1,12 +1,10 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
-import Notecards from './components/Notecards';
-import AddNote from './components/AddNote';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Collections from './components/Collections';
 import Home from './components/Home';
 import './App.css';
 import {connect} from 'react-redux'
-import {fetchNotes} from './actions'
+// import {fetchNotes} from './actions'
 
 class App extends React.Component {
  

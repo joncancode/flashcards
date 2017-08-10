@@ -7,7 +7,7 @@ export default class Collections extends React.Component {
         super(props);
 
         this.state = {
-            text: 'Test board'
+            text: 'Find Notes'
         }
     }
 
