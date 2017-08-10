@@ -23,14 +23,34 @@ class App extends React.Component {
         <h4 className="App-intro">
           You Got This.
         </h4>
+        <main>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/board/:boardId" component={Board} />
       <AddNote />
       
       <Notecards />
+      </main>
       </div>
       </Router>
     );
   }
 }
+
+        <Router>
+            <div className="app">
+                <header>
+                    <h1><Link to="/">Trelloish</Link></h1>
+                </header>
+                <main>
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/board/:boardId" component={Board} />
+                </main>
+            </div>
+        </Router>
+
+
+
+
 
 const mapStateToProps = (state) => ({
       words: state.cards.words,                        // how to get the key and properties to work 
