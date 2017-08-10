@@ -30,7 +30,7 @@ export const noteHeroReducer = (state = initialState, action) => {
     //           }
     //         : cards
     //   );
-    
+
     case 'DELETE_NOTE':
       return state.filter(
         cards =>

@@ -9,6 +9,7 @@ import Card from './Card.js';
 
 import {addNote} from '../actions';
 
+
 export class Notecards extends React.Component {
     constructor(props) {
       super(props);
@@ -34,22 +35,9 @@ export class Notecards extends React.Component {
                 <h3>{this.props.word}</h3>
                 {cards}
                
-                
             </div>
         );
     }
-
-
-//   render() {
-//     return (
-//       <div className="notecards">
-//         {this.props.cards.map((card, i) => (
-//             <Card key={i} {...card} />
-//         ))}
-//       </div>
-//     );
-//   }
-
  }
 
 // -----for the total number of notes----- 
