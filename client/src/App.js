@@ -2,16 +2,18 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import Notecards from './components/Notecards';
 import AddNote from './components/AddNote';
+import Collections from './components/Collections';
+import Home from './components/Home';
 import './App.css';
 import {connect} from 'react-redux'
 import {fetchNotes} from './actions'
 
 class App extends React.Component {
  
- componentDidMount() {
-   console.log('This stuff works') //acts as soon as the component loads -- should see in the counsole and lest us know an ACTION is ready to be dispatched
-   this.props.dispatch(fetchNotes())
- }
+//  componentDidMount() {
+//    console.log("props", this.props) //acts as soon as the component loads -- should see in the counsole and lest us know an ACTION is ready to be dispatched
+//    this.props.dispatch(fetchNotes())
+//  }
  
   render() {
     return (
@@ -21,35 +23,17 @@ class App extends React.Component {
           <h1>Note Hero</h1>
         </div>
         <h4 className="App-intro">
-          You Got This.
+          <Route exact path="/" component={Collections} />
         </h4>
-        <main>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/board/:boardId" component={Board} />
-      <AddNote />
-      
-      <Notecards />
-      </main>
+        <div>
+          
+          <Route exact path="/api/notes" component={Home} /> 
+      </div>
       </div>
       </Router>
     );
   }
 }
-
-        <Router>
-            <div className="app">
-                <header>
-                    <h1><Link to="/">Trelloish</Link></h1>
-                </header>
-                <main>
-                    <Route exact path="/" component={Home} />
-                    <Route exact path="/board/:boardId" component={Board} />
-                </main>
-            </div>
-        </Router>
-
-
-
 
 
 const mapStateToProps = (state) => ({

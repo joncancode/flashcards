@@ -27,7 +27,6 @@ app.use(function (req, res, next) {
 
 // API endpoints go here!
 app.get('/api/notes', (req, res) => {
-//  console.log('get all is happening');
   Note
     .find()
     .then(Notes => {

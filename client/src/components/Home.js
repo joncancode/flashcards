@@ -1,44 +1,26 @@
 import React from 'react';
-
 import './Home.css';
+import AddNote from './AddNote'
+import Notecards from './Notecards'
+import {connect} from 'react-redux'
+import {fetchNotes} from '../actions'
 
-export default class Home extends React.Component {
-    constructor(props) {
-        super(props);
+export class Home extends React.Component {
+  
+   componentDidMount() {
+   console.log('props', this.props) //acts as soon as the component loads -- should see in the counsole and lest us know an ACTION is ready to be dispatched
+   this.props.dispatch(fetchNotes())
+ }
 
-        this.state = {
-            text: 'Test board'
-        }
-    }
+  render() {
+    return (
+      <div>
+        <AddNote />
 
-    setText(text) {
-        this.setState({
-            text
-        });
-    }
-
-    slugify(text) {
-        return text
-            .toString()
-            .toLowerCase()
-            .replace(/[\s\W-]+/g, '-');
-    }
-
-    goToBoard(event) {
-        event.preventDefault();
-        this.props.history.push(`/board/${this.slugify(this.state.text)}`);
-    }
-
-    render() {
-        return (
-            <div className="home-page">
-                <h2>Welcome to Note Hero</h2>
-                <form onSubmit={e => this.goToBoard(e)}>
-                    <input type="text" value={this.slugify(this.state.text)}
-                        onChange={e => this.setText(e.target.value)} />
-                    <button>Go to board</button>
-                </form>
-            </div>
-        );
-    }
+        <Notecards />
+      </div>
+    );
+  }
 }
+
+export default connect()(Home);
