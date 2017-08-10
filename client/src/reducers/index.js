@@ -32,10 +32,10 @@ export const noteHeroReducer = (state = initialState, action) => {
     //   );
 
     case 'DELETE_NOTE':
-      return state.filter(
-        cards =>
-          cards.id !== action.id
-      );
+      return {
+        ...state, 
+        cards: state.cards.filter(c => c._id !== action.id)
+      }
     default:
       return state;
   }

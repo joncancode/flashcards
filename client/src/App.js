@@ -25,7 +25,7 @@ class App extends React.Component {
         </h4>
         <div>
           
-          <Route exact path="/api/notes" component={Home} /> 
+          <Route exact path="/notes" component={Home} /> 
       </div>
       </div>
       </Router>

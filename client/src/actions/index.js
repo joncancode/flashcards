@@ -72,7 +72,8 @@ export const postNotes = newNote => {
 export const deleteNote = id => {
   return dispatch => {
     //we are returning another function for to us thunk so we can connect to the ajax call
-    fetch('api/notes', {
+    fetch('http://localhost:8080/api/notes', {
+      //fetch('https://notehero.herokuapp.com/api/notes', {
       method: 'DELETE',
       headers: {
         Accept: 'application/json',
@@ -80,8 +81,8 @@ export const deleteNote = id => {
       },
       body: JSON.stringify({ id }) //this id starts in the frontend ajax call, then is sent to the server (around line 140 findByIdAndRemove)
     }) //redux-thunk gives us access to the dispatch -- from our local host (connecting to the server)
-      .then(response => response.json())
-      .then(json => dispatch(setNotes(json))) //this is where you pass in a dispatched action so that you can recieve the information -- same as | console.log('parsed json', json)
+      .then(() => dispatch({type: 'DELETE_NOTE', id}))
+      //(json))) //this is where you pass in a dispatched action so that you can recieve the information -- same as | console.log('parsed json', json)
       .catch(ex => console.log('parsing failed', ex));
   };
 };
