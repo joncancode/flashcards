@@ -15,6 +15,7 @@ class App extends React.Component {
  
   render() {
     return (
+      <Router>
       <div className="App">
         <div className="App-header">
           <h1>Note Hero</h1>
@@ -26,6 +27,7 @@ class App extends React.Component {
       
       <Notecards />
       </div>
+      </Router>
     );
   }
 }
