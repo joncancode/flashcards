@@ -72,8 +72,8 @@ export const postNotes = newNote => {
 export const deleteNote = id => {
   return dispatch => {
     //we are returning another function for to us thunk so we can connect to the ajax call
-    fetch('http://localhost:8080/api/notes', {
-      //fetch('https://notehero.herokuapp.com/api/notes', {
+    fetch('http://notehero.herokuapp.com/api/notes', {
+    //fetch('http://localhost:8080/api/notes', {
       method: 'DELETE',
       headers: {
         Accept: 'application/json',
