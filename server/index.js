@@ -170,7 +170,7 @@ app.get(/^(?!\/api(\/|$))/, (req, res) => {
 });
 
 let server;
-function runServer(DATABASE_URL, port = PORT) {
+function runServer(dbUrl, port = PORT) {
   console.log(port);
   return new Promise((resolve, reject) => {
     mongoose.connect(DATABASE_URL, err => {
