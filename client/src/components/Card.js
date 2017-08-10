@@ -7,6 +7,8 @@ import './Card.css';
 import FrontText from './FrontText.js';
 import BackText from './BackText.js';
 
+import { deleteNote }from '../actions/'
+
 export default class Card extends React.Component {
   state = {
     flipped: false
@@ -20,8 +22,10 @@ export default class Card extends React.Component {
 
     _handleDelete = id => {
       console.log("id", id)
-    this.props.deleteNote(id);
+    this.props.dispatch(deleteNote(id));
   };
+
+
 
   render() {
     if (this.state.flipped) {

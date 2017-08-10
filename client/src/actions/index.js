@@ -19,7 +19,7 @@ export const checkOff = (id) => ({
     id
 });
 
-export const DELETE_NOTE = 'DELETE_OFF';
+export const DELETE_NOTE = 'DELETE_NOTE';
 export const deleteNote = (id) => ({
     type: DELETE_NOTE,
     id
