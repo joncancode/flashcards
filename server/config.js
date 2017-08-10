@@ -3,7 +3,7 @@
 
 require('dotenv').config(); // converts .env file into an object: process.env
 
-export.DATABASE_URL= 'mongodb://dev:1@ds135912.mlab.com:35912/notehero'
+exports.DATABASE_URL= 'mongodb://dev:1@ds135912.mlab.com:35912/notehero'
 
 // exports.DATABASE_URL = process.env.DATABASE_URL ||
 //                        global.DATABASE_URL ||
