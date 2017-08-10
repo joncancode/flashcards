@@ -31,11 +31,11 @@ app.get('/api/notes', (req, res) => {
   Note
     .find()
     .then(Notes => {
-     // console.log(Notes);
+      // console.log(Notes);
       res.status(200).json(Notes); //Note is equal to the mongoose model being called in
     })
     .catch(err => {
-     // console.log('testing');
+      // console.log('testing');
       res.status(500).json({ message: 'Internal error from GET' });
     });
 });
@@ -49,11 +49,11 @@ app.get('/api/notes/:id', (req, res) => {
   Note
     .findById()
     .then(Notes => {
-     // console.log(Notes);
+      // console.log(Notes);
       res.status(200).json(Notes);
     })
     .catch(err => {
-     // console.log('testing');
+      // console.log('testing');
       res.status(500).json({ message: 'Internal error from GET' });
     });
 });
@@ -137,10 +137,20 @@ app.put('/api/notes/:id', (req, res) => {
 
 app.delete('/api/notes/:id/', (req, res) => {
   Note
-    .findByIdAndRemove(req.params.id)
+    .findByIdAndRemove(req.body.id)
     .then(result => {
       console.log(result);
-      res.status(204).send({ message: 'Deleted' });
+      Note
+        .find()
+        .then(Notes => {
+          // console.log(Notes);
+          res.status(200).json(Notes); //Note is equal to the mongoose model being called in
+        })
+        .catch(err => {
+          // console.log('testing');
+          res.status(500).json({ message: 'Internal error from GET' });
+        });
+      // res.status(204).send(notes.f{ message: 'Deleted' });
     })
     .catch(err => {
       console.log(err);

@@ -8,8 +8,9 @@ import FrontText from './FrontText.js';
 import BackText from './BackText.js';
 
 import { deleteNote }from '../actions/'
+import {connect} from 'react-redux'
 
-export default class Card extends React.Component {
+export class Card extends React.Component {
   state = {
     flipped: false
   };
@@ -44,3 +45,5 @@ export default class Card extends React.Component {
     );
   }
 }
+
+export default connect()(Card);
