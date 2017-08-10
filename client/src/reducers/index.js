@@ -1,4 +1,5 @@
-import { ADD_NOTE, CHECK_OFF, DELETE_NOTE } from '../actions';
+//dont think this next line should be commented, but it's not being used
+//import { ADD_NOTE, CHECK_OFF, DELETE_NOTE } from '../actions';
 
 const initialState = {
   cards: [
@@ -50,11 +51,11 @@ export const noteHeroReducer = (state = initialState, action) => {
     //           }
     //         : cards
     //   );
-    // case 'DELETE_NOTE':
-    //   return state.filter(
-    //     cards =>
-    //       cards.id !== action.id
-    //   );
+    case 'DELETE_NOTE':
+      return state.filter(
+        cards =>
+          cards.id !== action.id
+      );
     default:
       return state;
   }

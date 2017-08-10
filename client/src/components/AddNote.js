@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { addNote, checkOff, deleteNote, postNotes } from '../actions';
+//import { addNote, checkOff, deleteNote } from '../actions';
+import { postNotes } from '../actions';
 
 import './AddNote.css';
 
@@ -49,7 +50,6 @@ export class AddNote extends React.Component {
             aria-label="enter form"
             placeholder="vocabulary word"
             onChange={this.onChange}
-            aria-label="enter a vocab word"
             required
           />
           <button type="submit" value="Submit" >

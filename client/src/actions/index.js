@@ -1,3 +1,31 @@
+//adding notes
+export const ADD_NOTE = 'ADD_NOTE';
+export const addNote = (note) => ({
+    type: ADD_NOTE,
+    note
+});
+
+//setting all of the notes 
+export const SET_NOTES = 'SET_NOTES';
+export const setNotes = (allNotes) => ({
+    type: SET_NOTES,
+    allNotes
+});
+
+//click on the card 
+export const CHECK_OFF = 'CHECK_OFF';
+export const checkOff = (id) => ({
+    type: CHECK_OFF,
+    id
+});
+
+export const DELETE_NOTE = 'DELETE_OFF';
+export const deleteNote = (id) => ({
+    type: DELETE_NOTE,
+    id
+});
+
+
 
 //async action
 
@@ -46,48 +74,19 @@ export const postNotes = (newNote) =>{
 //     }
 // }
 
-// // asyn action -- delete 
-// export const postNotes = (newNote) =>{
-//     return (dispatch) => { //we are returning another function for to us thunk so we can connect to the ajax call 
-//       fetch('http://localhost:8080/api/notes' , { 
-//         method: 'POST',
-//         data: JSON.stringify({newNote}) 
-//         }) //redux-thunk gives us access to the dispatch -- from our local host (connecting to the server)
-//   .then(response =>  response.json())
-//   .then(json => dispatch(addNote(json)))   //this is where you pass in a dispatched action so that you can recieve the information -- same as | console.log('parsed json', json)
-//   .catch(ex => console.log('parsing failed', ex))                     
-//     }
-// }
+// asyn action -- delete 
+export const deleteOneNote = (newNote) =>{
+    return (dispatch) => { //we are returning another function for to us thunk so we can connect to the ajax call 
+      fetch('http://localhost:8080/api/notes' , { 
+        method: 'DELETE',
+        body: JSON.stringify({newNote}) 
+        }) //redux-thunk gives us access to the dispatch -- from our local host (connecting to the server)
+  .then(response =>  response.json())
+  .then(json => dispatch(deleteNote(json)))   //this is where you pass in a dispatched action so that you can recieve the information -- same as | console.log('parsed json', json)
+  .catch(ex => console.log('parsing failed', ex))                     
+    }
+}
 
-
-//add new words
-
-//adding notes
-export const ADD_NOTE = 'ADD_NOTE';
-export const addNote = (note) => ({
-    type: ADD_NOTE,
-    note
-});
-
-//setting all of the notes 
-export const SET_NOTES = 'SET_NOTES';
-export const setNotes = (allNotes) => ({
-    type: SET_NOTES,
-    allNotes
-});
-
-//click on the card 
-export const CHECK_OFF = 'CHECK_OFF';
-export const checkOff = (id) => ({
-    type: CHECK_OFF,
-    id
-});
-
-export const DELETE_NOTE = 'DELETE_OFF';
-export const deleteNote = (id) => ({
-    type: DELETE_NOTE,
-    id
-});
 
 
 //async action needs to be created
