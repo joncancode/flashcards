@@ -11,7 +11,7 @@ export default class Collections extends React.Component {
         super(props);
 
         this.state = {
-            text: 'Find Notes'
+            text: 'javascript'
         }
     }
 
@@ -31,7 +31,7 @@ export default class Collections extends React.Component {
     seeCollections(event) {
         event.preventDefault();
         this.props.history.push(`/notes/`);
-        // this.props.history.push(`/api/notes/${this.slugify(this.state.text)}`);
+       // this.props.history.push(`/api/notes/${this.slugify(this.state.text)}`);
     }
 
     render() {

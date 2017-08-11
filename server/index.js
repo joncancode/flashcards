@@ -31,7 +31,7 @@ app.use(function (req, res, next) {
 });
 
 // API endpoints go here!
-app.get('/api/notes', (req, res) => {
+app.get('/api/notes/', (req, res) => {
   Note
     .find()
     .then(Notes => {
