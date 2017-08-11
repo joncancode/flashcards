@@ -14,6 +14,10 @@
   border: dotted black 1px;
 }
 
+.cardfront:hover {
+  border: solid 1px green;
+}
+
 .cardback {
   background: lightcyan;
   display: flex;
@@ -28,4 +32,8 @@
   height: 150px;
   padding: 8px;
   border: dotted black 1px;
+}
+
+.cardback:hover {
+  border: solid 1px green;
 }

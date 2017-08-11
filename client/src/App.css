@@ -21,3 +21,21 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+button {
+  color: white;
+  background: #98AFC7;
+}
+
+button:hover {
+  color: white;
+  background: #F87431;
+}
+
+input {
+  background-color: #F0FFFF;
+}
+
+textarea {
+  background-color: #F0FFFF;
+}
