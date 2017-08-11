@@ -6,6 +6,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
+
 mongoose.Promise = global.Promise;
 
 const { PORT, DATABASE_URL } = require('./config');
@@ -14,9 +15,13 @@ const { Note } = require('./models');
 
 const app = express();
 
+const cors = require('cors');
+
 app.use(bodyParser.json());
 
 app.use(express.static('public'));
+
+app.use(cors({origin: 'http://localhost:8888'}));
 
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
