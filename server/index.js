@@ -31,7 +31,7 @@ app.use(function (req, res, next) {
 });
 
 // API endpoints go here!
-app.get('/api/notes/', (req, res) => {
+app.get('/', (req, res) => {
   Note
     .find()
     .then(Notes => {
@@ -44,11 +44,25 @@ app.get('/api/notes/', (req, res) => {
     });
 });
 
+app.get('/api/:categories', (req, res) => {
+  Note
+    .find({category: req.body.category})
+    // .then(console.log(req.body.category))
+    .then(Notes => {
+      console.log(req.params.categories);
+      res.status(200).json(Notes); //Note is equal to the mongoose model being called in
+    })
+    .catch(err => {
+      // console.log('testing');
+      res.status(500).json({ message: 'Internal error from GET' });
+    });
+});
+
 
 //homepage -> press notes button -> get here:
 
 
-app.get('/api/notes/:id', (req, res) => {
+app.get('/api/notes/:categories', (req, res) => {
   //console.log('get all is happening');
   Note
     .findById()
@@ -92,10 +106,12 @@ app.post('/api/notes', (req, res) => { //this is the pose when we are clicking o
   Note
     .create({
       word: req.body.newNote.word,
-      definition: req.body.newNote.definition
+      definition: req.body.newNote.definition,
+      category: req.params.newNote.category
     })
     .then(
       note => {
+        console.log(req.params)
         res.status(201).json(note);
       })
     .catch(err => {

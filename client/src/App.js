@@ -2,6 +2,8 @@ import React from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Collections from './components/Collections';
 import Home from './components/Home';
+import AddNote from './components/AddNote';
+
 import './App.css';
 import {connect} from 'react-redux'
 // import {fetchNotes} from './actions'
@@ -25,7 +27,10 @@ class App extends React.Component {
         </h4>
         <div>
           
-          <Route exact path="/notes" component={Home} /> 
+          {/*<Route exact path="/notes" component={Home} /> */}
+           <Route exact path="/notes/" component={AddNote} /> 
+
+           <Route exact path="/notes/:category" component={Home} /> 
       </div>
       </div>
       </Router>
@@ -37,8 +42,8 @@ class App extends React.Component {
 const mapStateToProps = (state) => ({
       words: state.cards.words,                        // how to get the key and properties to work 
       definition: state.cards.definition,
-      id: state.cards.id
-  
+      id: state.cards.id,
+      category: state.cards.category
   // cards: state.noteHeroReducer.cards
   // [
   //   {

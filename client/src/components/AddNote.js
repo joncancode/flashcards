@@ -11,7 +11,8 @@ export class AddNote extends React.Component {
     super();
     this.state = {
       word: "",
-      definition: ""
+      definition: "",
+      category: ""
     };
   }
 

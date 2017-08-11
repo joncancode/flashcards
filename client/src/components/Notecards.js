@@ -14,12 +14,13 @@ export class Notecards extends React.Component {
     constructor(props) {
       super(props);
         this.state = {
-          cards: []
+          cards: [],
+          category: true
         }
       }
     
-    addNote(word, definition) {
-        this.props.dispatch(addNote(word, definition, this.props.cardIndex));
+    addNote(word, definition, category) {
+        this.props.dispatch(addNote(word, definition, category, this.props.cardIndex));
     }
 
     render() {
