@@ -3,14 +3,16 @@
 }
 
 .App-header {
-  background-color: darkblue;
+  background-image: url('https://s-media-cache-ak0.pinimg.com/736x/3e/6c/d3/3e6cd3eaf90a0e370665a368579803b0.jpg');
   height: 80px;
   padding: 2px;
-  color: white;
+  color: #F52887;
+  font-size: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex: 1;
+  font-family: 'Emblema One', cursive;
 }
 
 .App-intro {
@@ -29,7 +31,7 @@ button {
 
 button:hover {
   color: white;
-  background: #F87431;
+  background: #F52887;
 }
 
 input {

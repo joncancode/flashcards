@@ -11,11 +11,11 @@
   max-width: 28%;
   height: 150px;
   padding: 8px;
-  border: dotted black 1px;
+  border: dotted black 3px;
 }
 
 .cardfront:hover {
-  border: solid 1px green;
+  border: solid 3px #F52887;
 }
 
 .cardback {
@@ -31,9 +31,9 @@
   max-width: 28%;
   height: 150px;
   padding: 8px;
-  border: dotted black 1px;
+  border: dotted black 3px;
 }
 
 .cardback:hover {
-  border: solid 1px green;
+  border: solid 3px #F52887;
 }
