@@ -5,6 +5,8 @@ https://notehero.herokuapp.com/
 Learning something new could be hard. We propose a solution.
 ## The Solution
 Note Hero is a way to have all your notes in one spot. Use this note catalogue to group what you need to study, then ace that next test.
+
+**View it in Action**
 ![Note Hero screenshot](/images/note-hero.gif?raw=true "Note Hero")
 
 ### Tech Used
