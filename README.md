@@ -1,7 +1,7 @@
 # Note Hero
 https://notehero.herokuapp.com/
 
-https://travis-ci.org/joncancode/flashcards.svg?branch=master
+[![Build Status](https://travis-ci.org/joncancode/flashcards.svg?branch=master)](https://travis-ci.org/joncancode/flashcards)
 
 ## The Problem
 Learning something new could be hard. We propose a solution.
