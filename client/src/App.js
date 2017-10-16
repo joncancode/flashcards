@@ -18,7 +18,7 @@ class App extends React.Component {
       <Router>
       <div className="App">
         <div className="App-header">
-          <h1>Note Hero</h1>
+          <h1 className="App-title">Note Hero</h1>
         </div>
         <h4 className="App-intro">
           <Route exact path="/" component={Collections} />

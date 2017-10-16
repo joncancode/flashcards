@@ -6,17 +6,22 @@
   background-image: url('https://s-media-cache-ak0.pinimg.com/736x/3e/6c/d3/3e6cd3eaf90a0e370665a368579803b0.jpg');
   height: 80px;
   padding: 2px;
-  color: #F52887;
-  font-size: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex: 1;
   font-family: 'Emblema One', cursive;
+  color: #F52887;
+  text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+  font-size: 32px;
 }
 
-.App-intro {
-  font-size: large;
+.intro-header {
+  line-height: 3;
+}
+
+.intro-text {
+  line-height: 3;
 }
 
 @keyframes App-logo-spin {

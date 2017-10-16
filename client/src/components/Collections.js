@@ -37,11 +37,12 @@ export default class Collections extends React.Component {
     render() {
         return (
             <div className="home-page">
-                {/* <h2>Welcome to Note Hero</h2> */}
+                <h2 className="intro-header">Welcome to Note Hero</h2>
+                <h4 className="intro-text">This application allows you to store useful information, then quiz yourself as you would with flashcards. Try it out!</h4>
                 <form onSubmit={e => this.seeCollections(e)}>
                     {/* <input type="text" value={this.slugify(this.state.text)}
                         onChange={e => this.setText(e.target.value)} /> */}
-                    <button>See your collections</button>
+                    <button>Get started</button>
                 </form>
             </div>
         );
