@@ -52,9 +52,6 @@ export class AddNote extends React.Component {
             onChange={this.onChange}
             required
           />
-          <button type="submit" value="Submit" >
-            ADD NOTE
-          </button>
           <br />
           <textarea
             onChange={this.onChange}
@@ -66,6 +63,10 @@ export class AddNote extends React.Component {
             placeholder="enter definition"
             required
           />
+          <br />
+          <button type="submit" value="Submit" >
+            ADD NOTE
+          </button>
         </form>
       </div>
     );

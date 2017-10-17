@@ -1,4 +1,20 @@
 button {
     padding: 5px;
     margin: auto;
+    font-size: 18px;
+}
+
+form {
+    padding: 35px;
+}
+
+input {
+    padding: 6px;
+    font-size: 14px;
+}
+
+textarea {
+    padding: 6px;
+    margin: 15px;
+    font-size: 14px;
 }
