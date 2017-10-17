@@ -11,12 +11,12 @@ https://notehero.herokuapp.com/
 **Tech stack**
 * [JavaScript](https://stackoverflow.com/questions/tagged/javascript) 
 * [jQuery](https://jquery.com/) 
-* [React] (https://reactjs.org/)
-* [Redux] (redux.js.org/)
+* [React](https://reactjs.org/)
+* [Redux](redux.js.org/)
 * [Node.js](https://nodejs.org/en/docs/) - Back End
 * [MongoDB](https://docs.mongodb.com/) - Database
 * [Heroku](https://www.heroku.com//) - Host
-* [TravisCI] (https://travis-ci.org/joncancode/flashcards) - Continuous Integration
+* [TravisCI](https://travis-ci.org/joncancode/flashcards) - Continuous Integration
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
