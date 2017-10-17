@@ -3,7 +3,6 @@ https://notehero.herokuapp.com/
 
 [![Build Status](https://travis-ci.org/joncancode/flashcards.svg?branch=master)](https://travis-ci.org/joncancode/flashcards)
 
-# [Note Hero](https://notehero.herokuapp.com/)
 [Note Hero](https://myrex.herokuapp.com/) is a way to have all your notes in one spot. Use this note catalogue to group what you need to study, then ace that next test.
 
 ![Note Hero screenshot](/images/note-hero.gif?raw=true "Note Hero")
