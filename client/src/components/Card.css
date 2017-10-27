@@ -12,6 +12,7 @@
   height: 150px;
   padding: 8px;
   border: dotted black 3px;
+  font-size: 16px;
 }
 
 .cardfront:hover {
@@ -32,8 +33,21 @@
   height: 150px;
   padding: 8px;
   border: dotted black 3px;
+  font-size: 16px;
 }
 
 .cardback:hover {
   border: solid 3px #F52887;
+}
+
+@media (orientation: portrait) {
+  .cardback{
+    min-width: 70%;
+    font-size: 14px;
+  }
+
+  .cardfront{
+    min-width: 70%;
+    font-size: 14px;
+  }
 }
